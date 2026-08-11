@@ -48,7 +48,7 @@ export const PROJECTS: Project[] = [
     longDescription: "A practical e-commerce showcase application designed specifically for Barur Accessories. The app allows customers to browse categorized collections of accessories, view detailed item specs, and interact with an organized product catalog.",
     purpose: "Digitize product presentation for Barur Accessories through a clean, accessible mobile/web catalog platform.",
     contribution: "Created responsive catalog interfaces, structured Firebase database models for product listings, and developed intuitive navigation controls.",
-    technologies: ["Firebase", "Web application technologies"],
+    technologies: ["React 19", "TypeScript", "Vite", "Tailwind CSS", "Framer Motion", "Lucide React", "Recharts", "WebAuthn / Passkeys", "Node.js", "Express.js", "Google GenAI SDK"],
     status: "Completed Demo",
     hasDatabase: true,
     githubUrl: "#",

@@ -171,7 +171,7 @@ export const CVPrintDocument: React.FC<CVPrintDocumentProps> = ({ lang }) => {
             <div className="flex justify-between items-center">
               <span className="text-xs font-bold text-slate-900">Barur Accessories</span>
               <span className="tech-tag text-[10px] text-blue-700 font-semibold" dir="ltr" style={{ unicodeBidi: 'isolate' }}>
-                Firebase, E-Commerce
+                React 19, TS, Vite, Node, GenAI
               </span>
             </div>
             <p className="text-[11px] text-slate-600 mt-1 m-0 leading-normal">
