@@ -1,0 +1,139 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --color-bg-dark: #172033;
+    --color-card-dark: #252B38;
+    --color-border-dark: #333D50;
+    --color-text-dark: #F7F7F5;
+    --color-muted-dark: #A7A1C8;
+    --color-accent-dark: #8FA8C7;
+
+    --color-bg-light: #F7F7F5;
+    --color-card-light: #FFFFFF;
+    --color-border-light: #E8EAF0;
+    --color-text-light: #172033;
+    --color-muted-light: #5A6478;
+    --color-accent-light: #4D5C80;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    transition: background-color 0.25s ease, color 0.25s ease;
+  }
+  
+  /* RTL specific font refinement */
+  html[dir="rtl"] body {
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  }
+
+  h1, h2, h3, h4, .font-heading {
+    letter-spacing: -0.02em;
+  }
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+.dark ::-webkit-scrollbar-track {
+  background: #172033;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #252B38;
+  border-radius: 4px;
+}
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #333D50;
+}
+
+::-webkit-scrollbar-track {
+  background: #F7F7F5;
+}
+::-webkit-scrollbar-thumb {
+  background: #E8EAF0;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #D0D5E0;
+}
+
+/* Dedicated Print Styles for A4 CV Document */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 15mm 15mm 15mm 15mm;
+  }
+
+  /* Reset body and hide normal interactive application UI */
+  body {
+    background: #ffffff !important;
+    color: #0f172a !important;
+    font-size: 10pt !important;
+    line-height: 1.5 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Hide interactive portfolio sections during print */
+  #root > div > nav,
+  #root > div > main,
+  #root > div > footer,
+  [role="dialog"],
+  .fixed,
+  button,
+  .no-print {
+    display: none !important;
+  }
+
+  /* Isolate printable document root */
+  #cv-print-root {
+    display: block !important;
+    visibility: visible !important;
+    position: static !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #ffffff !important;
+    color: #0f172a !important;
+  }
+
+  /* Headings must never break away from content below them */
+  .cv-print-heading {
+    break-after: avoid !important;
+    page-break-after: avoid !important;
+  }
+
+  /* Cards stay intact internally */
+  .cv-print-card {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  /* Projects section wrapper must allow natural continuous flow */
+  .cv-print-projects-wrapper {
+    break-inside: auto !important;
+    page-break-inside: auto !important;
+    break-before: auto !important;
+    page-break-before: auto !important;
+  }
+
+  /* Ensure letter spacing and uppercase transform do not disrupt Arabic text shaping */
+  #cv-print-root * {
+    letter-spacing: normal !important;
+    text-transform: none !important;
+  }
+
+  /* Tech tags keep LTR isolation inside Arabic text */
+  .tech-tag {
+    direction: ltr !important;
+    unicode-bidi: isolate !important;
+    display: inline-block !important;
+  }
+}
+
